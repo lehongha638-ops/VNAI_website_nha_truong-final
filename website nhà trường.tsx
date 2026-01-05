@@ -1,6 +1,6 @@
 
 import React, { useState, useRef } from 'react';
-import { NewsItem } from '../App';
+import { NewsItem } from './App';
 
 interface HCMSpaceProps {
   onSelectArticle: (article: NewsItem) => void;

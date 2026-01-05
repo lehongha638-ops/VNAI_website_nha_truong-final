@@ -10,7 +10,7 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="lien-he" className="py-24 bg-white">
+    <section id="lien-he" className="py-24 bg-white scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-merriweather text-4xl font-black text-[#102E50] mb-4 relative inline-block">

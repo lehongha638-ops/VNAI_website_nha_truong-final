@@ -45,7 +45,7 @@ const App: React.FC = () => {
         ) : (
           <>
             <Hero />
-            <About />
+            <About onSelectArticle={setSelectedArticle} />
             <News onSelectArticle={setSelectedArticle} />
             <HCMSpace onSelectArticle={setSelectedArticle} />
             <Gallery />

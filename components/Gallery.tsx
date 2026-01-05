@@ -44,7 +44,7 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <section id="thu-vien" className="py-24 bg-gray-50">
+    <section id="thu-vien" className="py-24 bg-gray-50 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-merriweather text-4xl font-black text-[#102E50] mb-4 relative inline-block">

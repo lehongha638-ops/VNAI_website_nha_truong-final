@@ -1,6 +1,6 @@
 
 import React, { useState, useRef } from 'react';
-import { NewsItem } from '../App';
+import { NewsItem } from './App';
 
 interface HCMSpaceProps {
   onSelectArticle: (article: NewsItem) => void;
@@ -60,7 +60,7 @@ const HCMSpace: React.FC<HCMSpaceProps> = ({ onSelectArticle }) => {
     if (event.target.files && event.target.files[0] && uploadTarget) {
       const file = event.target.files[0];
       const reader = new FileReader();
-
+      
       reader.onloadend = () => {
         const result = reader.result as string;
         if (uploadTarget === 'portrait') {
@@ -69,7 +69,7 @@ const HCMSpace: React.FC<HCMSpaceProps> = ({ onSelectArticle }) => {
           setBackgroundImage(result);
         }
       };
-
+      
       reader.readAsDataURL(file);
     }
     event.target.value = '';
@@ -77,19 +77,19 @@ const HCMSpace: React.FC<HCMSpaceProps> = ({ onSelectArticle }) => {
   };
 
   return (
-    <section
-      id="khong-gian-ho-chi-minh"
+    <section 
+      id="khong-gian-ho-chi-minh" 
       className="py-24 relative overflow-hidden group min-h-[700px] flex items-center scroll-mt-24"
     >
       {/* Background Gradient & Pattern */}
-      <div
+      <div 
         className={`absolute inset-0 ${backgroundImage ? '' : 'bg-gradient-to-br from-[#f5e6d3] to-[#fff8e7]'}`}
         style={backgroundImage ? { backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
       />
-
+      
       {/* Dong Son Drum Watermark Pattern - More visible and centered */}
       {!backgroundImage && (
-        <div
+        <div 
           className="absolute inset-0 opacity-[0.06] pointer-events-none mix-blend-multiply"
           style={{
             backgroundImage: `url('https://www.svgrepo.com/show/369719/dong-son-drum.svg')`,
@@ -116,8 +116,7 @@ const HCMSpace: React.FC<HCMSpaceProps> = ({ onSelectArticle }) => {
       <div className="max-w-7xl mx-auto px-4 relative z-10 w-full">
         <div className="text-center mb-16">
           <h2 className={`font-merriweather text-4xl font-black mb-4 relative inline-block ${backgroundImage ? 'text-white' : 'text-[#102E50]'}`}>
-            <span className="block">KHÔNG GIAN VĂN HÓA</span>
-            <span className="block">HỒ CHÍ MINH</span>
+            Không Gian Văn Hóa Hồ Chí Minh
             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-[#E78B48] rounded-full" />
           </h2>
           <p className={`text-lg font-bold mt-4 ${backgroundImage ? 'text-orange-300' : 'text-[#E78B48]'}`}>
@@ -129,9 +128,9 @@ const HCMSpace: React.FC<HCMSpaceProps> = ({ onSelectArticle }) => {
           {/* Left Column: Portrait */}
           <div className="lg:w-2/5 flex justify-center">
             <div className="relative group overflow-hidden rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] transform transition-transform duration-500 hover:-rotate-1 max-w-sm border-8 border-white">
-              <img
-                src={portraitImage}
-                alt="Hồ Chí Minh"
+              <img 
+                src={portraitImage} 
+                alt="Hồ Chí Minh" 
                 className="w-full h-auto object-cover"
               />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -147,13 +146,12 @@ const HCMSpace: React.FC<HCMSpaceProps> = ({ onSelectArticle }) => {
 
           {/* Right Column: Cards - Using light orange bg context (no white container) */}
           <div className="lg:w-3/5 flex flex-col gap-4">
-            <button
+            <button 
               onClick={() => handleLinkClick('cuo-doi')}
-              className="group flex items-center gap-5 bg-gradient-to-r from-[#b91c1c] to-[#7f1d1d] p-3.5 rounded-[2.5rem] text-white font-bold hover:from-[#dc2626] transition-all shadow-xl border border-white/10 w-[76.5%]"
+              className="group flex items-center gap-5 bg-gradient-to-r from-[#b91c1c] to-[#7f1d1d] p-3.5 rounded-[2.5rem] text-white font-bold hover:from-[#dc2626] transition-all shadow-xl border border-white/10"
             >
               <div className={`w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl shrink-0 transition-transform group-hover:rotate-12 ${activeButton === 'cuo-doi' ? 'rotate-12' : ''}`}>🎯</div>
-              <div className="text-left">
-
+              <div className={activeButton === 'cuo-doi' ? 'text-left' : ''}>
                 <h3 className="text-lg font-black">Cuộc đời, sự nghiệp</h3>
                 <p className="text-xs opacity-60 font-medium">Khám phá hành trình cách mạng của Người</p>
               </div>
@@ -161,78 +159,75 @@ const HCMSpace: React.FC<HCMSpaceProps> = ({ onSelectArticle }) => {
 
 
 
-            <button
+<button 
 
-              onClick={() => handleLinkClick('guong-dien-hinh')}
+  onClick={() => handleLinkClick('guong-dien-hinh')}
 
-              className="group flex items-center gap-5 bg-gradient-to-r from-[#b91c1c] to-[#7f1d1d] p-3.5 rounded-[2.5rem] text-white font-bold hover:from-[#dc2626] transition-all shadow-xl border border-white/10 w-[76.5%]"
+  className="group flex items-center gap-5 bg-gradient-to-r from-[#b91c1c] to-[#7f1d1d] p-3.5 rounded-[2.5rem] text-white font-bold hover:from-[#dc2626] transition-all shadow-xl border border-white/10"
 
-            >
-
-              <div className={`w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl shrink-0 transition-transform group-hover:rotate-12 ${activeButton === 'guong-dien-hinh' ? 'rotate-12' : ''}`}>🖼️</div>
-
-              <div className="text-left">
-
-
-                <h3 className="text-lg font-black">Gương điển hình</h3>
-
-                <p className="text-xs opacity-60 font-medium">Tuyên dương Thầy và trò tiêu biểu</p>
-
-              </div>
-
-            </button>
-
-
-
-            <button
-  onClick={() => handleLinkClick('tu-tuong')}
-  className="group flex items-center gap-5 bg-gradient-to-r from-[#b91c1c] to-[#7f1d1d] p-3.5 rounded-[2.5rem] text-white font-bold hover:from-[#dc2626] transition-all shadow-xl border border-white/10 w-[76.5%]"
 >
-  <div
-    className={`w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl shrink-0 transition-transform group-hover:rotate-12 ${
-      activeButton === 'tu-tuong' ? 'rotate-12' : ''
-    }`}
-  >
-    💭
+
+  <div className={`w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl shrink-0 transition-transform group-hover:rotate-12 ${activeButton === 'guong-dien-hinh' ? 'rotate-12' : ''}`}>🖼️</div>
+
+  <div className={activeButton === 'guong-dien-hinh' ? 'text-left' : ''}>
+
+    <h3 className="text-lg font-black">Gương điển hình</h3>
+
+    <p className="text-xs opacity-60 font-medium">Tuyên dương thầy và trò tiêu biểu</p>
+
   </div>
 
-  <div className="text-left">
-    <h3 className="text-lg font-black">Tư tưởng, đạo đức</h3>
-    <p className="text-xs opacity-60 font-medium">
-      Học tập và làm theo phong cách của Bác
-    </p>
-  </div>
 </button>
 
 
 
+<button 
 
-            <button
+  onClick={() => handleLinkClick('tu-tuong')}
 
-              onClick={() => handleLinkClick('the-gioi')}
+  className="group flex items-center gap-5 bg-gradient-to-r from-[#b91c1c] to-[#7f1d1d] p-3.5 rounded-[2.5rem] text-white font-bold hover:from-[#dc2626] transition-all shadow-xl border border-white/10"
 
-              className="group flex items-center gap-5 bg-gradient-to-r from-[#b91c1c] to-[#7f1d1d] p-3.5 rounded-[2.5rem] text-white font-bold hover:from-[#dc2626] transition-all shadow-xl border border-white/10 w-[76.5%]"
+>
 
-            >
+  <div className={`w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl shrink-0 transition-transform group-hover:rotate-12 ${activeButton === 'tu-tuong' ? 'rotate-12' : ''}`}>💭</div>
 
-              <div className={`w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl shrink-0 transition-transform group-hover:rotate-12 ${activeButton === 'the-gioi' ? 'rotate-12' : ''}`}>🌍</div>
+  <div className={activeButton === 'tu-tuong' ? 'text-left' : ''}>
 
-              <div className="text-left">
+    <h3 className="text-lg font-black">Tư tưởng, đạo đức</h3>
+
+    <p className="text-xs opacity-60 font-medium">Học tập và làm theo phong cách của Bác</p>
+
+  </div>
+
+</button>
 
 
-                <h3 className="text-lg font-black">Hồ Chí Minh & thế giới</h3>
 
-                <p className="text-xs opacity-60 font-medium">Tình hữu nghị giữa các dân tộc</p>
+<button 
 
-              </div>
+  onClick={() => handleLinkClick('the-gioi')}
 
-            </button>
+  className="group flex items-center gap-5 bg-gradient-to-r from-[#b91c1c] to-[#7f1d1d] p-3.5 rounded-[2.5rem] text-white font-bold hover:from-[#dc2626] transition-all shadow-xl border border-white/10"
 
-            <a
-              href="https://baotanghochiminh.vn/"
+>
+
+  <div className={`w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl shrink-0 transition-transform group-hover:rotate-12 ${activeButton === 'the-gioi' ? 'rotate-12' : ''}`}>🌍</div>
+
+  <div className={activeButton === 'the-gioi' ? 'text-left' : ''}>
+
+    <h3 className="text-lg font-black">Hồ Chí Minh & thế giới</h3>
+
+    <p className="text-xs opacity-60 font-medium">Tình hữu nghị giữa các dân tộc</p>
+
+  </div>
+
+</button>
+
+            <a 
+              href="https://baotanghochiminh.vn/" 
               target="_blank"
               onClick={() => setActiveButton('bao-tang')}
-              className="group flex items-center gap-5 bg-gradient-to-r from-[#b91c1c] to-[#7f1d1d] p-3.5 rounded-[2.5rem] text-white font-bold hover:from-[#dc2626] transition-all shadow-xl border border-white/10 w-[76.5%]"
+              className="group flex items-center gap-5 bg-gradient-to-r from-[#b91c1c] to-[#7f1d1d] p-3.5 rounded-[2.5rem] text-white font-bold hover:from-[#dc2626] transition-all shadow-xl border border-white/10"
             >
               <div className={`w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl shrink-0 transition-transform group-hover:rotate-12 ${activeButton === 'bao-tang' ? 'rotate-12' : ''}`}>🏛️</div>
               <div className={activeButton === 'bao-tang' ? 'text-left' : ''}>

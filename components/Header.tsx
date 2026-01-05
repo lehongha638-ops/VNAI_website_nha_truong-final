@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ onHomeClick }) => {
     { name: 'TRANG CHỦ', id: 'trang-chu', action: onHomeClick },
     { name: 'GIỚI THIỆU', id: 'gioi-thieu' },
     { name: 'TIN TỨC', id: 'tin-tuc' },
-    { name: 'KHÔNG GIAN HỒ CHÍ MINH', id: 'khong-gian-ho-chi-minh' },
+    { name: 'KHÔNG GIAN VĂN HÓA HỒ CHÍ MINH', id: 'khong-gian-ho-chi-minh', isTwoLine: true },
     { name: 'THƯ VIỆN', id: 'thu-vien' },
     { name: 'LIÊN HỆ', id: 'lien-he' }
   ];
@@ -61,7 +61,14 @@ const Header: React.FC<HeaderProps> = ({ onHomeClick }) => {
                   onClick={item.action ? item.action : undefined}
                   className="hover:text-[#E78B48] relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[#E78B48] after:transition-all hover:after:w-full transition-colors text-[#102E50]"
                 >
-                  {item.name}
+                  {item.isTwoLine ? (
+                    <span className="block leading-tight">
+                      <span className="block">KHÔNG GIAN VĂN HÓA</span>
+                      <span className="block">HỒ CHÍ MINH</span>
+                    </span>
+                  ) : (
+                    item.name
+                  )}
                 </a>
               </li>
             ))}
@@ -93,7 +100,14 @@ const Header: React.FC<HeaderProps> = ({ onHomeClick }) => {
                     }}
                     className="block hover:text-[#E78B48] py-2 border-b border-gray-50 last:border-0"
                   >
-                    {item.name}
+                    {item.isTwoLine ? (
+                      <span className="block leading-tight">
+                        <span className="block">KHÔNG GIAN VĂN HÓA</span>
+                        <span className="block">HỒ CHÍ MINH</span>
+                      </span>
+                    ) : (
+                      item.name
+                    )}
                   </a>
                 </li>
               ))}

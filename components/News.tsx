@@ -32,7 +32,7 @@ const News: React.FC<NewsProps> = ({ onSelectArticle }) => {
   ];
 
   return (
-    <section id="tin-tuc" className="py-24 bg-[#FCF9EA]/50">
+    <section id="tin-tuc" className="py-24 bg-[#FCF9EA]/50 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-merriweather text-4xl font-black text-[#102E50] mb-4 relative inline-block">
