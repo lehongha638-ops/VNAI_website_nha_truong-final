@@ -55,7 +55,7 @@ const HCMSpace: React.FC<HCMSpaceProps> = ({ onSelectArticle }) => {
     setUploadTarget(target);
     fileInputRef.current?.click();
   };
-
+  // console.log(activeButton);
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0] && uploadTarget) {
       const file = event.target.files[0];
