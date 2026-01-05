@@ -54,7 +54,8 @@ const HCMSpace: React.FC<HCMSpaceProps> = ({ onSelectArticle }) => {
   const handleUploadClick = (target: 'portrait' | 'background') => {
     setUploadTarget(target);
     fileInputRef.current?.click();
-  };
+  }; 
+
   // console.log(activeButton);
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0] && uploadTarget) {
@@ -116,8 +117,8 @@ const HCMSpace: React.FC<HCMSpaceProps> = ({ onSelectArticle }) => {
       <div className="max-w-7xl mx-auto px-4 relative z-10 w-full">
         <div className="text-center mb-16">
           <h2 className={`font-merriweather text-4xl font-black mb-4 relative inline-block ${backgroundImage ? 'text-white' : 'text-[#102E50]'}`}>
-            <span className="block">KHÔNG GIAN VĂN HÓA</span>
-            <span className="block">HỒ CHÍ MINH</span>
+            <span className="block">Không Gian Văn Hóa</span>
+            <span className="block">Hồ Chí Minh</span>
             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-[#E78B48] rounded-full" />
           </h2>
           <p className={`text-lg font-bold mt-4 ${backgroundImage ? 'text-orange-300' : 'text-[#E78B48]'}`}>
